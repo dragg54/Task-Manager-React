@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useLoginRequest, usePostRequest } from '../hooks/hooks'
-import { User, UserLogin } from '../types/user'
+import { User } from '../types/user'
 
 const Login = () => {
-    let [value, setValue] = useState<UserLogin>({email: "", password: "" })
+    let [value, setValue] = useState<User>({email: "", password: "" })
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         setValue({ ...value, [e.target.name]: e.target.value })

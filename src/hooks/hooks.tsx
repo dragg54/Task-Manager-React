@@ -1,9 +1,9 @@
 import axios from "axios"
-import { useContext } from "react"
+import {  useContext, useMemo, useReducer } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthProvider"
-import { SetAuth } from "../types/setAuth"
-import { User, UserLogin } from "../types/user"
+import { User } from "../types/user"
+import { storeTokInStorage } from "../utils/helpers"
 
 export const usePostRequest = () => {
     const navigate = useNavigate()
@@ -20,16 +20,18 @@ export const usePostRequest = () => {
 
 
 export const useLoginRequest = () => {
-const setAuth:any  = useContext(AuthContext)
+    const user: any = useContext(AuthContext)
     const navigate = useNavigate()
-    const postUser = (url: string, req: UserLogin) => {
+    const postUser = (url: string, req: User) => {
         axios.post(url, req)
             .then((response) => {
-               if(response){
-                setAuth.setAuth(response.data)
-                navigate("/")
-               }
+                if (response.data.token) {
+                    storeTokInStorage(response.data.token)
+                    user.dispatch({type:"LOGIN_SUCCESS", payload:{user: response.data.token, err:""}})
+                    navigate("/dashboard")
+                }
             }).catch((error) => {
+                user.dispatch({type:"LOGIN_FAILURE", payload:{user: "", err:error}})
                 console.log(error)
             })
     }

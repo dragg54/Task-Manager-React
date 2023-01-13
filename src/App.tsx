@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './contexts/AuthProvider';
 import './index.css'
@@ -10,15 +10,16 @@ import SignUp from './pages/SignUp';
 
 function App() {
   return (
-   <AuthProvider>
-   <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path="/signup" element={<SignUp/>}/>
-      <Route path="/signin" element={<Login/>}/>
-    </Routes>
-   </BrowserRouter>
-   </AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/dashboard" />} />
+          <Route path='/dashboard' element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
