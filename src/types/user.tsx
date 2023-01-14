@@ -6,10 +6,3 @@ export type User = {
    
 }
 
-export type Auth = {
-    user?: string,
-    isLoading?: boolean,
-    setIsLoading?: React.Dispatch<React.SetStateAction<boolean>> 
-    setUser?: React.Dispatch<React.SetStateAction<string>> 
-
-}

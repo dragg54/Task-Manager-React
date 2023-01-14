@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { usePostRequest } from '../hooks/hooks'
+import { useSignup } from '../hooks/useSignup'
 import { User } from '../types/user'
 
 const SignUp = () => {
@@ -9,7 +9,7 @@ const SignUp = () => {
         e.preventDefault()
         setValue({ ...value, [e.target.name]: e.target.value })
     }
-    const postUser = usePostRequest()
+    const postUser = useSignup()
     const handleSubmit =(e:FormEvent) =>{
         e.preventDefault()
         postUser("http://localhost:8080/api/v1/user/new", value)

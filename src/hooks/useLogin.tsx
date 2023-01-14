@@ -5,21 +5,9 @@ import { AuthContext } from "../contexts/AuthProvider"
 import { User } from "../types/user"
 import { storeTokInStorage } from "../utils/helpers"
 
-export const usePostRequest = () => {
-    const navigate = useNavigate()
-    const postUser = (url: string, req: User) => {
-        axios.post(url, req)
-            .then((response) => {
-                navigate("/signin")
-            }).catch((error) => {
-                console.log(error)
-            })
-    }
-    return postUser
-}
 
 
-export const useLoginRequest = () => {
+export const useLogin = () => {
     const user: any = useContext(AuthContext)
     const navigate = useNavigate()
     const postUser = (url: string, req: User) => {
@@ -28,7 +16,7 @@ export const useLoginRequest = () => {
                 if (response.data.token) {
                     storeTokInStorage(response.data.token)
                     user.dispatch({type:"LOGIN_SUCCESS", payload:{user: response.data.token, err:""}})
-                    navigate("/dashboard")
+                    navigate("/")
                 }
             }).catch((error) => {
                 user.dispatch({type:"LOGIN_FAILURE", payload:{user: "", err:error}})

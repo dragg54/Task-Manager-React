@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { useLoginRequest, usePostRequest } from '../hooks/hooks'
+import {useLogin} from "../hooks/useLogin"
 import { User } from '../types/user'
 
 const Login = () => {
@@ -8,7 +8,7 @@ const Login = () => {
         e.preventDefault()
         setValue({ ...value, [e.target.name]: e.target.value })
     }
-    const postUser = useLoginRequest()
+    const postUser = useLogin()
     const handleSubmit =(e:FormEvent) =>{
         e.preventDefault()
         postUser("http://localhost:8080/api/v1/user/login", value)
