@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily:{
         'marhey': 'Marhey',
-        'comfortaa': 'Comfortaa'
+        'comfortaa': 'Comfortaa',
+        'monts': 'Montserrat'
       }
     },
   },
