@@ -19,7 +19,8 @@ function Home() {
 
   if (userAuth.state.user) {
     return (
-      <div className='bg-[#efefef]'>
+      <div className='bg-[#efefef] w-screen h-screen relative'>
+       
         <Header />
         <div className='w-screen h-screen flex mt-2'>
           <div className='w-[15%] h-full bg-red-100 flex flex-col items-start justify-start px-2 pt-16'>
@@ -34,7 +35,12 @@ function Home() {
               <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 mt-20'><AiOutlineLogout className='mr-2 text-pink-600' /> Logout</li>
             </ul>
           </div>
-          <Outlet />
+          <div className='w-[full] h-full bg-white flex justify-center'>
+              <Outlet />
+          </div>
+           <div className='w-full h-full absolute bg-gray-700 opacity-60'>
+
+        </div>
         </div>
       </div>
     )
