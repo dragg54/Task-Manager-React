@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { Dispatch, FunctionComponent } from 'react'
+import { useOutletContext } from 'react-router-dom'
 import TaskContainer from './TaskContainer'
 
-const TaskBoard = () => {
+interface WrapperStatusProps{
+    toggleWrapperStatus?: boolean
+}
+const TaskBoard= ({toggleWrapperStatus}: WrapperStatusProps) => {
+    const setToggleWrapperStatus = useOutletContext()
     return (
         <div>
-            <div className='w-[150%] h-full flex justify-center pl-2 bg-white'>
-                <div className='w-[80%]  h-fit bg-white flex justify-between'>
+            <div className='w-[125%] h-full flex justify-center pl-2 bg-white'>
+                <div className='w-[90%]  h-fit bg-white flex justify-between'>
                     <TaskContainer status="todo"/>
                     <TaskContainer status="doing" />
                     <TaskContainer status="done" />
