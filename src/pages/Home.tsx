@@ -18,20 +18,12 @@ const Home = () => {
   const userAuth = useAuth()
   const logOut = useLogout()
   const { toggleWrapperDisplayStatus, setToggleWrapperDisplayStatus } = useContext(WrapperDisplayContext)
-  console.log(toggleWrapperDisplayStatus)
-  function set(){
-    console.log(1)
-    if(setToggleWrapperDisplayStatus){
-      setToggleWrapperDisplayStatus(true)
-    }
-  }
-  console.log(toggleWrapperDisplayStatus)
   if (userAuth.state.user) {
     return (
     
-        <div className='bg-[#efefef] w-screen h-screen relative'>
+        <div className='bg-[#efefef] w-full h-screen relative'>
           <Header />
-          <div className='w-screen h-screen flex mt-2'>
+          <div className=' flex mt-2 w-full h-full justify-center'>
             <div className='w-[15%] h-full bg-red-100 flex flex-col items-start justify-start px-2 pt-16'>
               <ul className='h-2/5 flex flex-col justify-between w-full'>
                 <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700'><GrTasks className='mr-2 ' color="green" />
@@ -42,10 +34,10 @@ const Home = () => {
                 <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 mt-20'><AiOutlineLogout className='mr-2 text-pink-600' /> Logout</li>
               </ul>
             </div>
-            <div className='w-[full] h-full bg-white flex justify-center'>
+            <div className='w-[100%] bg-purple-200 h-full flex justify-center'>
               <Outlet />
             </div>
-            <div className={`w-full h-full justify-center items-center absolute bg-[rgba(105,105,105,0.4)] ${toggleWrapperDisplayStatus ? 'flex' : 'hidden'}`}>
+            <div className={`w-full h-[90%] justify-center items-center absolute bg-[rgba(105,105,105,0.4)] ${toggleWrapperDisplayStatus ? 'flex' : 'hidden'}`}>
               <div className='w-1/3 h-1/3 bg-white -mt-20'>
 
               </div>
