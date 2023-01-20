@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Hero from './components/Hero';
 import TaskBoard from './components/Task/TaskBoard';
 import AuthProvider, { useAuth } from './contexts/AuthProvider';
 import { WrapperDisplayContextProvider } from './contexts/WrapperDisplayContext';
@@ -18,8 +19,9 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate replace to="/dashboard" />} />
+          <Route path="/" element={<Navigate replace to="/dashboard/hero" />} />
           <Route path='/dashboard' element={<Home />}>
+          <Route path='/dashboard/hero' element ={<Hero />} />
             <Route path='/dashboard/task' element ={<TaskBoard />} />
           </Route>
           <Route path="/signup" element={<SignUp />} />

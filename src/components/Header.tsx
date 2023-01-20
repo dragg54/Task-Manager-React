@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs"
 const Header = () => {
   return (
     <div className='w-full h-20 bg-white flex items-center  justify-between px-6'>
-        <h1 className="font-marhey text-purple-700">Huska</h1>
+        <h1 className="font-marhey text-black">Husk<span className='text-red-700'>a</span></h1>
         <div className='relative'>
             <input type="text" placeholder='search' className='rounded-md h-8 w-60 border border-1 border-gray-500 p-3 outline-none text-gray-600 relative' />
             <BsSearch className='absolute top-1/3 text-gray-600 right-2 -translate-y-0.5'/>

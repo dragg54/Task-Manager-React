@@ -1,5 +1,5 @@
 export const task = [
-    {
+    /* {
         id:1,
         description: "create a budget app for the following performance",
         status: "todo"
@@ -18,5 +18,5 @@ export const task = [
         id:4,
         description: "create a budget app for the following performance",
         status: "todo"
-    }
+    } */
 ]

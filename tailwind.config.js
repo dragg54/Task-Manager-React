@@ -9,6 +9,9 @@ module.exports = {
         'marhey': 'Marhey',
         'comfortaa': 'Comfortaa',
         'monts': 'Montserrat'
+      },
+      backgroundImage:{
+        'bgImg': "url('./assets/signin.png')"
       }
     },
   },
