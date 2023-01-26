@@ -1,7 +1,9 @@
 import { ReducerWithoutAction } from "react";
+import { Task } from "./Tasks";
 
 export interface ITaskRequestState{
     loading: boolean,
-    data: [],
-    err: string
+    data: Task[],
+    err: string,
+    dispatch?: any
 }

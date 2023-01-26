@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { AuthContext, useAuth } from '../contexts/AuthProvider'
 import { Navigate } from "react-router-dom";
@@ -7,18 +7,18 @@ import { useLogout } from '../hooks/useLogout';
 import Header from '../components/Header';
 import {FiHome} from 'react-icons/fi'
 import { GrTasks } from "react-icons/gr"
-import { MdPeopleAlt } from "react-icons/md"
 import { FcBinoculars, FcAlarmClock, FcHome } from "react-icons/fc"
 import { RiCalendarTodoLine } from "react-icons/ri"
 import { AiOutlineLogout } from "react-icons/ai"
-import TaskContainer from '../components/Task/TaskContainer';
 import { WrapperDisplayContext, WrapperDisplayContextProvider } from '../contexts/WrapperDisplayContext';
+import { useTaskContext } from '../contexts/TaskContext';
 
 
 const Home = () => {
   const userAuth = useAuth()
   const logOut = useLogout()
   const { toggleWrapperDisplayStatus, setToggleWrapperDisplayStatus } = useContext(WrapperDisplayContext)
+  const{state, dispatch} = useTaskContext()
   if (userAuth.state.user) {
     return (
     

@@ -1,24 +1,21 @@
 import { ReducerWithoutAction } from "react"
+import { requestState } from "../types/requestState"
 import { ITaskRequestState } from "../types/taskRequestState"
 
-export const initialTaskRequestState = {
+export const initialTaskRequestState: ITaskRequestState = {
     loading: true,
     data: [] ,
     err: ""
 }
 
 
-export const taskReducer = (state = initialTaskRequestState, action: any) =>{
+export const taskReducer = (state: ITaskRequestState, action: any):ITaskRequestState =>{
     switch(action.type){
-        case "FETCH_REQUEST":
-            return {
-                loading: true, data: [], err: ""
-            }
-        case "FETCH_REQUEST_SUCCESS":
+        case requestState.FETCH_REQUEST_SUCCESS:
             return{
                 ...state, loading: false, data: action.payload.data, err: ""
             }
-        case "FETCH_REQUEST_FAILURE":
+        case requestState.FETCH_REQUEST_FAILURE:
             return{
                 ...state, loading: false, data: [], err: action.payload.err
             }

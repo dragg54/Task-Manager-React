@@ -1,7 +1,6 @@
 import {LoginActionState } from "../types/reducerState"
 import { getTokFromStorage } from "../utils/helpers"
 
-const token = getTokFromStorage()
 export const initialState: LoginActionState = {
     loading: true,
     user: getTokFromStorage(),

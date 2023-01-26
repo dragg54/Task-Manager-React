@@ -1,0 +1,5 @@
+export enum requestState{
+    FETCH_REQUEST,
+    FETCH_REQUEST_SUCCESS,
+    FETCH_REQUEST_FAILURE
+}
