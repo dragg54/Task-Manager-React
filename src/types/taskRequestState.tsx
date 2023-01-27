@@ -1,5 +1,5 @@
 import { ReducerWithoutAction } from "react";
-import { Task } from "./Tasks";
+import { Task } from "./task";
 
 export interface ITaskRequestState{
     loading: boolean,

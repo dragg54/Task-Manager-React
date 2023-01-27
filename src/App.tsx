@@ -5,7 +5,7 @@ import './App.css';
 import Hero from './components/Hero';
 import TaskBoard from './components/Task/TaskBoard';
 import AuthProvider, { useAuth } from './contexts/AuthProvider';
-import { TaskContextProvider } from './contexts/TaskContext';
+import { TaskContextProvider } from './contexts/TaskProvider';
 import { WrapperDisplayContextProvider } from './contexts/WrapperDisplayContext';
 import './index.css'
 import Home from './pages/Home';

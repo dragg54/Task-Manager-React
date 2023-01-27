@@ -9,17 +9,17 @@ export const initialTaskRequestState: ITaskRequestState = {
 }
 
 
-export const taskReducer = (state: ITaskRequestState, action: any):ITaskRequestState =>{
+export const taskReducer = (taskState: ITaskRequestState, action: any):ITaskRequestState =>{
     switch(action.type){
         case requestState.FETCH_REQUEST_SUCCESS:
             return{
-                ...state, loading: false, data: action.payload.data, err: ""
+                ...taskState, loading: false, data: action.payload.data, err: ""
             }
         case requestState.FETCH_REQUEST_FAILURE:
             return{
-                ...state, loading: false, data: [], err: action.payload.err
+                ...taskState, loading: false, data: [], err: action.payload.err
             }
         default:
-            return state
+            return taskState
     }
 }

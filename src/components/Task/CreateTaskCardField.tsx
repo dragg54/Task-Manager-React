@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { useTaskContext } from '../../contexts/TaskProvider'
 import { IRequest, usePostTask } from '../../hooks/usePostTask'
 
 type TaskStatusProps = {
@@ -15,17 +16,13 @@ const CreateTaskCardField = ({toggleContainerStatus, status}: TaskStatusProps) =
     setDescriptionInputValue({description: e.target.value, status: status})
   }
 
-  function postTask(){
-    setTimeout(()=>{
-      createTask(descriptionInputValue)
-    }, 1000)
-  }
-
   //submits request to server
   function submitTaskForm(e: FormEvent<HTMLFormElement>){
     e.preventDefault()
-    createTask(descriptionInputValue)
-    window.location.reload()
+    if(descriptionInputValue.description.length > 0){
+      createTask(descriptionInputValue)
+    }
+    toggleContainerStatus(status)
    
   }
 
@@ -34,7 +31,7 @@ const CreateTaskCardField = ({toggleContainerStatus, status}: TaskStatusProps) =
         <form action= "" className=" w-full flex flex-col justify-center" onSubmit={(e)=>{submitTaskForm(e)}}>
             <textarea name="description" id="" cols={44} rows={5} value={descriptionInputValue.description} onChange={(e)=>{handleDescrInputChange(e)}} className='border-gray-500  outline-none bg-[#efefef] p-2 text-sm' placeholder='Add a task'>    
             </textarea>
-            <button type='button' onClick={()=>{postTask()}} className='bg-gradient-to-r from-pink-900 to-red-400 px-2 py-2 rounded-[4px] w-2/5 text-[#efefef] text-sm mt-3 border border-gray-400'>
+            <button type='submit' className='bg-gradient-to-r from-pink-900 to-red-400 px-2 py-2 rounded-[4px] w-2/5 text-[#efefef] text-sm mt-3 border border-gray-400'>
                 <span className='opaciy-50'>Add Card</span>
             </button>
         </form>

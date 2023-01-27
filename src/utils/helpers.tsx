@@ -1,4 +1,4 @@
-import { Task } from "../types/Tasks"
+import { Task } from "../types/task"
 
 export const getTokFromStorage = () => {
   const token = JSON.parse(localStorage.getItem("token")!)
