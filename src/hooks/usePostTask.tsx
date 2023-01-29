@@ -10,7 +10,7 @@ export interface IRequest{
 }
 
 export const usePostTask = () => {
-    const {dispatch} = useTaskContext()
+    const {state,dispatch} = useTaskContext()
     function createTask(req: IRequest) {
         axios.post("http://localhost:8080/api/V1/task/new" ,req, 
         {
@@ -18,7 +18,7 @@ export const usePostTask = () => {
               "token": getTokFromStorage(),
             }},)
             .then((response) => {
-                dispatch({type: requestState.FETCH_REQUEST_SUCCESS, payload:{data: response?.data.data}})
+                dispatch({type: requestState.ADD_TASK, payload:{data: response.data}})
             }).catch((err) => {
                 console.log(err)
             })

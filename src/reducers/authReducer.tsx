@@ -1,4 +1,4 @@
-import {LoginActionState } from "../types/reducerState"
+import {LoginActionState } from "../types/loginState"
 import { getTokFromStorage } from "../utils/helpers"
 
 export const initialState: LoginActionState = {

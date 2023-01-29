@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsSearch } from "react-icons/bs"
-import { useAuth } from '../contexts/AuthProvider'
+import { useAuth } from '../../contexts/AuthProvider'
 
 const Header = () => {
   const {state} = useAuth()

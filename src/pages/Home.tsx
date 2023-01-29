@@ -4,7 +4,7 @@ import { AuthContext, useAuth } from '../contexts/AuthProvider'
 import { Navigate } from "react-router-dom";
 import { User } from '../types/user';
 import { useLogout } from '../hooks/useLogout';
-import Header from '../components/Header';
+import Header from '../components/Layouts/Header';
 import { FiHome } from 'react-icons/fi'
 import { GrTasks } from "react-icons/gr"
 import { FcBinoculars, FcAlarmClock, FcHome } from "react-icons/fc"
@@ -12,14 +12,13 @@ import { RiCalendarTodoLine } from "react-icons/ri"
 import { AiOutlineLogout } from "react-icons/ai"
 import { WrapperDisplayContext, WrapperDisplayContextProvider } from '../contexts/WrapperDisplayContext';
 import { useTaskContext } from '../contexts/TaskProvider';
-import EditAndDeleteCard from '../components/EditAndDeleteCard';
+import EditAndDeleteCard from '../components/Cards/EditAndDeleteCard';
 
 
 const Home = () => {
   const userAuth = useAuth()
   const logOut = useLogout()
   const { toggleWrapperDisplayStatus, setToggleWrapperDisplayStatus } = useContext(WrapperDisplayContext)
-  const { state, dispatch } = useTaskContext()
 
   //logout 
   function logout() {

@@ -1,6 +1,6 @@
 import { ITaskRequestState } from "./taskRequestState";
 
 export interface ITaskContext{
-    state: ITaskRequestState, 
+    state?: ITaskRequestState, 
     dispatch?: any
 }
