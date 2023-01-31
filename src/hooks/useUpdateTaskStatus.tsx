@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext } from 'react'
 import { useTaskContext } from '../contexts/TaskProvider'
 import { WrapperDisplayContext } from '../contexts/WrapperDisplayContext'
-import { requestState } from '../types/requestState'
+import { RequestState } from '../types/requestState'
 import { Task } from '../types/task'
 import { IRequest } from './usePostTask'
 
@@ -14,7 +14,7 @@ export function useUpdateTaskStatus() {
             status
         })
         .then((response)=>{
-            dispatch({type: requestState.UPDATE_TASK_STATUS, payload:{status:status, id:currentTaskId}})
+            dispatch({type: RequestState.UPDATE_TASK_STATUS, payload:{status:status, id:currentTaskId}})
             if(setToggleWrapperDisplayStatus)
             setToggleWrapperDisplayStatus(false)
         }).catch((err)=>{

@@ -22,10 +22,8 @@ const TaskContainer = ({ status }: StatusProps) => {
         setShowCreateCartContainer({ ...showCreateCartContainer, [status]: !showCreateCartContainer[taskStatus] })
     }
     const [showCreateCartContainer, setShowCreateCartContainer] = useState({ todo: false, doing: false, done: false }) as any
-    if(!taskState.loading && taskState.data.length == 0){
-        return <></>
-    }
-    if (!taskState.loading && taskState.data.length) {
+    
+    if (!taskState.loading && taskState.data) {
         return (
             <div className='w-full h-fit flex flex-col items-between mt-10'>
                 <div className={`w-[320px] bg-yellow-500 py-6 pb-4 px-3 mx-4 mt-3 rounded-md ${status === "todo" ? 'bg-red-200' : status === "doing" ? 'bg-orange-200' : 'bg-green-200'}`}>

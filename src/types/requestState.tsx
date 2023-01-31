@@ -1,4 +1,4 @@
-export enum requestState{
+export enum RequestState{
     FETCH_REQUEST,
     FETCH_REQUEST_SUCCESS,
     FETCH_REQUEST_FAILURE,

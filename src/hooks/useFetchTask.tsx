@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect } from "react"
 import { useTaskContext } from "../contexts/TaskProvider"
-import { requestState } from "../types/requestState"
+import { RequestState } from "../types/requestState"
 import { getTokFromStorage } from "../utils/helpers"
 
 export const useFetchTask = () => {
@@ -13,10 +13,10 @@ export const useFetchTask = () => {
             }
         })
             .then((response) => {
-                dispatch({ type: requestState.FETCH_REQUEST_SUCCESS, payload: { data: response?.data } })
+                dispatch({ type: RequestState.FETCH_REQUEST_SUCCESS, payload: { data: response?.data } })
             })
             .catch((err) => {
-                dispatch({ type: requestState.FETCH_REQUEST_FAILURE, payload: { data: err.data } })
+                dispatch({ type: RequestState.FETCH_REQUEST_FAILURE, payload: { data: err.data } })
             })
     }
 

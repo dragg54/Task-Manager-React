@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useTaskContext } from "../contexts/TaskProvider"
-import { requestState } from "../types/requestState"
+import { RequestState } from "../types/requestState"
 import { Task } from "../types/task"
 import { getTokFromStorage } from "../utils/helpers"
 
@@ -18,7 +18,7 @@ export const usePostTask = () => {
               "token": getTokFromStorage(),
             }},)
             .then((response) => {
-                dispatch({type: requestState.ADD_TASK, payload:{data: response.data}})
+                dispatch({type: RequestState.ADD_TASK, payload:{data: response.data}})
             }).catch((err) => {
                 console.log(err)
             })

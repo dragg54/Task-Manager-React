@@ -31,20 +31,20 @@ const Home = () => {
       <div className='bg-[#efefef] w-full h-screen relative'>
         <Header />
         <div className=' flex mt-2 w-full h-full justify-center'>
-          <div className='w-[15%] h-full bg-red-300 flex flex-col items-start justify-start px-2 pt-16'>
+          <div className='w-[15%] h-full bg-gray-50 flex flex-col items-start justify-start px-2 pt-16 shadow-2xl border'>
             <ul className='h-1/2 flex flex-col justify-between w-full'>
               <li className='flex items-center h-8 w-full justify-start px-4 text-black hover:text-black'>
                 <div className='p-2 bg-purple-500 text-white flex justify-center items-center font-extrabold mr-2 shadow-[3px_3px_gray] rounded-md'>P</div>
                 <h1 className='font-extrabold text-gray-800'>Project</h1></li>
               <div className='w-full h-1 bg-gray-900 my-2 opacity-20'>
               </div>
-              <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 hover:text-black'><FiHome className='mr-2 ' color="purple" />
+              <li className='flex items-center h-8 w-full font-medium justify-start px-4 text-gray-700 hover:text-black'><FiHome className='mr-2 ' color="purple" />
                 <Link to="/" className=''>Home</Link></li>
-              <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 hover:text-black'><GrTasks className='mr-2 ' color="green" />
+              <li className='flex items-center h-8 w-full justify-start font-medium px-4 text-gray-700 hover:text-black'><GrTasks className='mr-2 ' color="green" />
                 <Link to="/dashboard/task" className=''>Task</Link></li>
-              <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 hover:text-black'><FcBinoculars className='mr-2' /> Overview </li>
-              <li className='flex items-center h-8 w-full justify-start px-4 text-gray-700 hover:text-black'><RiCalendarTodoLine className='mr-2 text-blue-500' /> Plans </li>
-              <li onClick={() => logout()} className='flex items-center h-8 w-full justify-start px-4 text-gray-700 hover:text-black mt-20 cursor-pointer'><AiOutlineLogout className='mr-2 text-pink-600'
+              <li className='flex items-center h-8 w-full justify-start px-4 font-medium text-gray-700 hover:text-black'><FcBinoculars className='mr-2' /> Overview </li>
+              <li className='flex items-center h-8 w-full justify-start px-4 font-medium text-gray-700 hover:text-black'><RiCalendarTodoLine className='mr-2 text-blue-500' /> Plans </li>
+              <li onClick={() => logout()} className='flex items-center h-8 w-full font-medium justify-start px-4 text-gray-700 hover:text-black mt-20 cursor-pointer'><AiOutlineLogout className='mr-2 text-pink-600'
               /> Logout</li>
             </ul>
           </div>
