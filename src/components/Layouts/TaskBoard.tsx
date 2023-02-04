@@ -9,7 +9,7 @@ const TaskBoard= ({toggleWrapperStatus}: WrapperStatusProps) => {
     const setToggleWrapperStatus = useOutletContext()
     return (
             <div className='w-full h-full flex justify-center pl-2 bg-white overflow-scroll'>
-                <div className='w-[80%] h-fit bg-white flex justify-between'>
+                <div className='w-[85%] h-fit bg-white flex justify-between'>
                     <TaskContainer status="todo"/>
                     <TaskContainer status="doing" />
                     <TaskContainer status="done" />

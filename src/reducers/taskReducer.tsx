@@ -42,7 +42,6 @@ export const taskReducer = (taskState: ITaskRequestState, action: any): ITaskReq
             const newTasks = taskState.data.filter((task) => {
                 return task.id !== action.payload.id
             })
-            console.log({task: newTasks})
             return {...taskState, loading: false, data: [...newTasks], err: ""}
         default:
             return taskState

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useTaskContext } from '../../contexts/TaskProvider'
-import { IRequest, usePostTask } from '../../hooks/usePostTask'
+import { IRequest, usePost} from '../../hooks/usePost'
 
 type TaskStatusProps = {
   toggleContainerStatus:any,
@@ -9,7 +9,7 @@ type TaskStatusProps = {
 
 const CreateTaskCardField = ({toggleContainerStatus, status}: TaskStatusProps) => {
   const [descriptionInputValue, setDescriptionInputValue] = useState<IRequest>({description:"", status: "todo"})
-  const createTask = usePostTask()
+  const createTask = usePost("http://localhost:8080/api/V1/task/new")
 
   //handles description input field change
   function handleDescrInputChange(e: ChangeEvent<HTMLTextAreaElement>){

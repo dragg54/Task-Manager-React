@@ -9,10 +9,10 @@ export interface IRequest{
     status: string
 }
 
-export const usePostTask = () => {
+export const usePost = (url:string) => {
     const {state,dispatch} = useTaskContext()
     function createTask(req: IRequest) {
-        axios.post("http://localhost:8080/api/V1/task/new" ,req, 
+        axios.post(url ,req, 
         {
             headers: {
               "token": getTokFromStorage(),

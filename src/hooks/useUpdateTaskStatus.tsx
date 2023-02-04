@@ -4,7 +4,7 @@ import { useTaskContext } from '../contexts/TaskProvider'
 import { WrapperDisplayContext } from '../contexts/WrapperDisplayContext'
 import { RequestState } from '../types/requestState'
 import { Task } from '../types/task'
-import { IRequest } from './usePostTask'
+import { IRequest } from './usePost'
 
 export function useUpdateTaskStatus() {
     const {dispatch} = useTaskContext()
