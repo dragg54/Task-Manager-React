@@ -43,6 +43,20 @@ export const taskReducer = (taskState: ITaskRequestState, action: any): ITaskReq
                 return task.id !== action.payload.id
             })
             return {...taskState, loading: false, data: [...newTasks], err: ""}
+        case RequestState.UPDATE_TASK:
+            let updatedTask = taskState.data.filter((task) => {
+                return task.id == action.payload.id
+            })
+            if(updatedTask.length > 0){
+                const taskIndex = taskState.data.indexOf(updatedTask[0])
+                updatedTask[0]["description"] = action.payload.description
+                return { ...taskState, loading: false, data: [...taskState.data] }
+            }
+            if (updatedTask.length > 0) {
+                const taskIndex = taskState.data.indexOf(updatedTask[0])
+                updatedTask[0]["description"] = action.payload.status
+                return { ...taskState, loading: false, data: [...taskState.data] }
+            }
         default:
             return taskState
 

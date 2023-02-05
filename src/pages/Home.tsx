@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { AuthContext, useAuth } from '../contexts/AuthProvider'
 import { Navigate } from "react-router-dom";
@@ -13,13 +13,14 @@ import { AiOutlineLogout } from "react-icons/ai"
 import { WrapperDisplayContext, WrapperDisplayContextProvider } from '../contexts/WrapperDisplayContext';
 import { useTaskContext } from '../contexts/TaskProvider';
 import EditAndDeleteCard from '../components/Cards/EditAndDeleteCard';
+import EditField from '../components/Cards/EditField';
 
 
 const Home = () => {
   const userAuth = useAuth()
   const logOut = useLogout()
   const { toggleWrapperDisplayStatus, setToggleWrapperDisplayStatus } = useContext(WrapperDisplayContext)
-
+  const [showEditField, setShowEditField] = useState(false)
   //logout 
   function logout() {
     logOut()
@@ -27,8 +28,13 @@ const Home = () => {
 
   if (userAuth.state.user) {
     return (
-
       <div className='bg-[#efefef] w-full h-screen relative'>
+         <div className={`w-full z-50 h-[100%] justify-center items-center absolute bg-[rgba(105,105,105,0.6)] ${toggleWrapperDisplayStatus ? 'flex' : 'hidden'}`}>
+            <EditAndDeleteCard {...{setShowEditField, showEditField}} />
+            <div className={`w-[420px] h-[200px] z-50 ${showEditField? 'block': 'hidden'}`}>
+              <EditField />
+            </div>
+          </div>
         <Header />
         <div className=' flex mt-2 w-full h-full justify-center'>
           <div className='w-[15%] h-full bg-gray-50 flex flex-col items-start justify-start px-2 pt-16 shadow-2xl border'>
@@ -50,9 +56,6 @@ const Home = () => {
           </div>
           <div className='w-[100%] bg-gray-100 h-full flex justify-center'>
             <Outlet />
-          </div>
-          <div className={`w-full h-[90%] justify-center items-center absolute bg-[rgba(105,105,105,0.6)] ${toggleWrapperDisplayStatus ? 'flex' : 'hidden'}`}>
-            <EditAndDeleteCard />
           </div>
         </div>
       </div>

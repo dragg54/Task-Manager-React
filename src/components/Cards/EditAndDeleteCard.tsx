@@ -7,15 +7,12 @@ import { FaEdit } from "react-icons/fa"
 import { GiPush } from "react-icons/gi"
 import { useDelete } from '../../hooks/useDelete'
 
-interface EditAndDeleteCardProps {
-  tasks?: {
-    id: number,
-    description: string,
-    status: string
-  }
+interface EditProps {
+  setShowEditField: React.Dispatch<React.SetStateAction<boolean>>
+  showEditField: boolean
 }
 
-const EditAndDeleteCard = () => {
+const EditAndDeleteCard = ({setShowEditField, showEditField}: EditProps) => {
   const { toggleWrapperDisplayStatus, setToggleWrapperDisplayStatus } = useContext(WrapperDisplayContext)
 
   //ref individual destination container
@@ -46,9 +43,12 @@ const EditAndDeleteCard = () => {
   const deleteTask = useDelete(`http://localhost:8080/api/V1/task/${currentTaskId}/delete`)
 
   return (
-    <div className='flex h-fit  overflow-visible'>
+    <div className={`${showEditField? 'hidden': 'flex'} h-fit  overflow-visible`}>
       <div className='w-24 h-[90px] bg-gray-700 px-1 py-2 flex  flex-col justify-between -mt-14'>
-        <p className='text-gray-200 cursor-pointer hover:text-black flex items-center justify-start' onClick={() => toggleWrapperStatus()}><FaEdit className='mr-2' />Edit</p>
+        <p className='text-gray-200 cursor-pointer hover:text-black flex items-center justify-start' onClick={() =>{
+           setShowEditField(true)
+
+          }}><FaEdit className='mr-2' />Edit</p>
         <div className='w-full h-[0.2px] bg-gray-300 shadow-md'></div>
         <p className='text-gray-200 cursor-pointer hover:text-black flex items-center justify-start' onClick={() => {
           deleteTask()

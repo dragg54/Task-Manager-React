@@ -13,8 +13,8 @@ interface TaskProps{
 const TaskCard = ({status, tasks}: TaskProps) => {
     const[showEditAndDeleteCard, setShowAndDeleteCard] = useState(false)
     const cardElement= useRef<HTMLDivElement>(null)
-    const {toggleWrapperDisplayStatus} = useContext(WrapperDisplayContext)
     const setToggleWrapperDisplayStatus = useContext(WrapperDisplayContext).setToggleWrapperDisplayStatus!
+    const setCurrentTask = useContext(WrapperDisplayContext).setCurrentTask!
     const setCurrentTaskId = useContext(WrapperDisplayContext).setCurrentTaskId!
 
    
@@ -32,6 +32,7 @@ const TaskCard = ({status, tasks}: TaskProps) => {
                 <BsPen className='absolute top-3 right-3 hidden group-hover:block text-gray-700'  onClick={(e)=>{
                     setToggleWrapperDisplayStatus(true)
                     setCurrentTaskId(tasks.id)
+                    setCurrentTask(tasks.description)
                 }
                 }/>
               {/*   <div className={`absolute z-50 -bottom-5 right-2 hidden overflow-visible`} id= {`${tasks?.id}`} ref ={cardElement} >
