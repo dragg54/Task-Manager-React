@@ -32,7 +32,7 @@ const Home = () => {
          <div className={`w-full z-50 h-[100%] justify-center items-center absolute bg-[rgba(105,105,105,0.6)] ${toggleWrapperDisplayStatus ? 'flex' : 'hidden'}`}>
             <EditAndDeleteCard {...{setShowEditField, showEditField}} />
             <div className={`w-[420px] h-[200px] z-50 ${showEditField? 'block': 'hidden'}`}>
-              <EditField />
+              <EditField {...{setShowEditField}}/>
             </div>
           </div>
         <Header />
